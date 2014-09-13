@@ -1,13 +1,13 @@
 bind9-generator
 ===============
 
-Generates complete bind9 configuration files for a simple DNS setup. 
+Generates complete bind9 configuration files for a simple DNS setup (for Debian).
 
 ##Description
 For a simple DNS setup on a recent Debian based system only three bind9 configuration files are involved:
 * /etc/bind9/named.conf.local
-* zones/rev.168.1.192.in-addr.arpa
-* zones/tld.domain.db
+* /etc/bind9/zones/rev.168.1.192.in-addr.arpa
+* /etc/bind9/zones/tld.domain.db
 
 The first two files are shared among all domains on the server. The third file is unique for a domain. 
 
