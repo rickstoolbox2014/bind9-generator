@@ -21,3 +21,5 @@ The bash script in this repository will read the domains and their associated IP
 Please note that domains are listed in the **zone** notation (*tld first*).
 
 The script has been tested with bind9 rev. 1:9.8.4.dfsg.P1-6+nmu2+deb7u1.
+
+By default, the script is expecting the configuration file at: /root/bind_config.txt.
