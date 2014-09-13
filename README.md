@@ -14,9 +14,8 @@ The first two files are shared among all domains on the server. The third file i
 The bash script in this repository will read the domains and their associated IP addresses from a file. This file is formatted as:
 
     # domain	  IP address
-    my-url.com	  123.234.45.56
-    my-url.me	  123.234.45.56
+    com.my-url	  123.234.45.56
+    me.my-url	  123.234.45.56
+    org.my-url	  123.234.45.56
 
-
-
-
+Please note that domains are listed in the **zone** notation (*tld first*).
