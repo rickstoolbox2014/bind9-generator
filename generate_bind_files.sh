@@ -51,7 +51,11 @@ ARPA_ZONE=${BINDCONFIGROOT}/zones/rev.168.1.192.in-addr.arpa
 
 SERIAL=`date '+%Y%m%d%H%M'`
 
-echo $SERIAL 
+if [ ! -e ${CONFIGFILE} ]; then
+
+	echo "Configuration file '${CONFIGFILE}' is missing."
+	exit 1
+fi
 
 # backup current configuration
 
@@ -167,7 +171,7 @@ for LINE in `cat ${CONFIGFILE} | grep -v '^#'`; do
 	ENOZ=`echo -n ${LINE} | awk '{ print $1 }' | awk 'BEGIN {FS="."} { print $2 "." $1}'`
 	THEIP=`echo -n ${LINE} | awk '{ print $2 }'`
 
-	ZONEFILE=/etc/bind/zones/${ENOZ}.db
+	ZONEFILE=${BINDCONFIGROOT}/${ENOZ}.db
 
 	echo -e "\tgenerating file ${ZONEFILE}"
 
