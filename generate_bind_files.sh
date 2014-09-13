@@ -1,4 +1,21 @@
 #!/bin/bash
+#
+# Rick's own bind9 configuration file generator for Debian based systems.
+# 
+#    Copyright (C) 2014 Rick, rickstoolbox2014@gmail.com
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # 20140912 by Rick, version 0.1
 
@@ -8,14 +25,31 @@
 # Pass One: generate /etc/bind/named.conf.local; 
 # Pass Two: generate /etc/bind/zones/rev.168.1.192.in-addr.arpa; 
 # Pass Three: generate for each zone: /etc/bind/generate zones/tld.domain.db;
+#
+# The input configuration file has the follow format:
+#
+# #comment line
+# com.my-url       12.23.34.56
+# org.my-url       12.23.34.56
 
-CONFIGURATION=/root/bind_hosted_domains.conf
+# the configuration file
+CONFIGFILE=/root/bind_config.txt
+
+# the root of the bind9 configuration
 BINDCONFIGROOT=/etc/bind
+
+# the configuration file is read three times
+
+# this file is generated in pass one
 NAMED_CONF_LOCAL=${BINDCONFIGROOT}/named.conf.local
+
+# this file is generated in pass two
 ARPA_ZONE=${BINDCONFIGROOT}/zones/rev.168.1.192.in-addr.arpa
 
+# for every listed zone/IP address in the configuration file a file is generated in pass three
+# as ${BINDCONFIGROOT}/zones/tld.domain.db
+
 SERIAL=`date '+%Y%m%d%H%M'`
-CONFIGFILE=/root/bind_config.txt
 
 echo $SERIAL 
 
