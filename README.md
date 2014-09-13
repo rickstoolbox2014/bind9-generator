@@ -1,7 +1,7 @@
 bind9-generator
 ===============
 
-Generates complete bind9 configuration files for a simple DNS setup (for Debian).
+Generates relevant bind9 configuration files for a simple DNS setup (for Debian).
 
 ##Description
 For a simple DNS setup on a recent Debian based system only three bind9 configuration files are involved:
@@ -19,3 +19,5 @@ The bash script in this repository will read the domains and their associated IP
     org.my-url	  123.234.45.56
 
 Please note that domains are listed in the **zone** notation (*tld first*).
+
+The script has been tested with bind9 rev. 1:9.8.4.dfsg.P1-6+nmu2+deb7u1.
